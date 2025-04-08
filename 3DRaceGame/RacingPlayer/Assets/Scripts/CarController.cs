@@ -37,7 +37,12 @@ public class CarController : MonoBehaviour
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteeringAngle;
 
-    private void FixedUpdate() 
+   void Start()
+   {
+      Rigidbody rb = GetComponent<Rigidbody>();
+      rb.centerOfMass = new Vector3(0, rb.centerOfMass.y, rb.centerOfMass.z);
+   }
+   private void FixedUpdate() 
     {
         GetInput();
         HandleMotor();
@@ -53,7 +58,7 @@ public class CarController : MonoBehaviour
        if(Input.GetKey("r"))
        {
            Debug.Log("RestartPosition");
-           transform.position = new Vector3(3f, transform.position.y, transform.position.z);
+           transform.position = new Vector3(1f, transform.position.y, transform.position.z);
            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
        }
     }
