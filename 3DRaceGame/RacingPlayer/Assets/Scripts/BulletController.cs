@@ -15,7 +15,7 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         rigidB2D = GetComponent<Rigidbody>();
-        rigidB2D.AddForce(transform.up * bulletSpeed, ForceMode.Force); Yuri alterou
+        rigidB2D.AddForce(transform.up * bulletSpeed, ForceMode.Force);
     }
     void Update()
     {
